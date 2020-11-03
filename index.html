@@ -5,18 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spacemakers</title>
-    <link rel="stylesheet" href="css/normalize.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/addons/p5.sound.min.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/layouts.css">
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/sketch.js"></script>
+    <script type="text/javascript" src="js/star.js"></script>
+
 </head>
 
 <body>
-    <div class="o-container">
-        <svg version="1.1" id="Layer_1" class="c-animate-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px" y="0px" viewBox="0 0 596.77 524" style="enable-background:new 0 0 596.77 524;" xml:space="preserve">
-            <path
-                d="M460.73,149.31V60.02H58.14v401.84h402.6V297.58l76.4-69.27L460.73,149.31z M74.94,76.8h287.13L74.94,226.61V76.8zM443.93,445.09H294.56l149.37-131.94V445.09z M443.93,133.38L388.36,76.8h55.57V133.38z" />
-        </svg>
-    </div>
+    <main class="o-row">
+
+        <div class="o-container-logo" style="z-index: 2;">
+            <div class="c-page" style="z-index: 1;">
+            </div>
+
+            <mask class="c-mask">
+                <svg version="1.1" id="Layer_1" style="z-index: 3;" class="c-animate-logo js-logo"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 596.77 524" style="enable-background:new 0 0 596.77 524;" xml:space="preserve">
+                    <path
+                        d="M460.73,149.31V60.02H58.14v401.84h402.6V297.58l76.4-69.27L460.73,149.31z M74.94,76.8h287.13L74.94,226.61V76.8zM443.93,445.09H294.56l149.37-131.94V445.09z M443.93,133.38L388.36,76.8h55.57V133.38z" />
+                </svg>
+            </mask>
+
+
+
+            <div id="c-canvas" style="z-index: 2;">
+            </div>
+        </div>
+
+
+
+    </main>
+
+
 </body>
 
 </html>

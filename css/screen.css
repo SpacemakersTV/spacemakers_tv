@@ -3,6 +3,39 @@
 \*------------------------------------*/
 
 /*------------------------------------*\
+#Variables
+\*------------------------------------*/
+:root {
+    /* colors */
+
+    --global-color-neutral: #B3B3B3;
+    --global-color-neutral-light: #b3b3b38f;
+    --global-background-color: #121212;
+
+    --global-html-color: var(--global-color-neutral);
+
+    --border-color: #1DB954;
+
+    /* transitions */
+    --global-transitionTiming-alpha: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    --global-transitionTiming-alpha-f: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    /* --global-transitionTiming-alpha-x:  500ms ease-out; */
+
+    --search-display: block;
+
+    --search-main-width: 360px;
+
+    --search-main-border-radius: 18px;
+
+    --o-row-justify: center;
+
+    --search-margin: calc(50% - var(--search-main-width)/2);
+
+    --search-background-color: var(--global-background-color);
+    --icon-fill: var(--global-color-neutral);
+}
+
+/*------------------------------------*\
   #GENERIC
 \*------------------------------------*/
 
@@ -167,520 +200,54 @@ a:focus {
 }
 
 /*------------------------------------*\
-  #OBJECTS
+  #objects
 \*------------------------------------*/
-
-/*
-    Objects: Row
-    ---
-    Creates a horizontal row that stretches the viewport and adds padding around children
-*/
-
-.o-row {
-    padding: 24px 24px 0;
-    display: flow-root;
-}
-
-.o-row--primary {
-    background: #e85e00;
-    color: white;
-}
-
-.o-row--dark {
-    background: #000;
-    color: white;
-}
-
-@media (min-width: 768px) {
-    .o-row--lg {
-        padding: 48px 48px 24px;
-    }
-}
-/*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
-
 .o-container {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 90em; /* 90 * 16px = 1440px */
+    max-width: 56.4em; /* 56.4 * 20px = 1128px */
 }
 
-/*
-    Objects: Layout
-    ---
-    The layout object provides us with a column-style layout system. This object
-    contains the basic structural elements, but classes should be complemented
-    with width utilities
-*/
-
-.o-layout {
-    display: -webkit-flex;
-    display: -ms-flexbox;
+.o-container-logo {
     display: flex;
-    flex-wrap: wrap;
-}
-
-    .o-layout__item {
-        flex-basis: 100%;
-    }
-
-.o-layout--gutter {
-    margin: 0 -12px;
-}
-
-.o-layout--gutter > .o-layout__item {
-    padding: 0 12px;
-}
-
-.o-layout--gutter-sm {
-    margin: 0 -6px;
-}
-
-.o-layout--gutter-sm > .o-layout__item {
-    padding: 0 6px;
-}
-
-.o-layout--gutter-lg {
-    margin: 0 -24px;
-}
-
-.o-layout--gutter-lg > .o-layout__item {
-    padding: 0 24px;
-}
-
-/* reverse horizontal row modifier */
-
-.o-layout--row-reverse {
-    flex-direction: row-reverse;
-}
-
-/* Horizontal alignment modifiers*/
-
-.o-layout--justify-start {
-    justify-content: flex-start;
-}
-
-.o-layout--justify-end {
-    justify-content: flex-end;
-}
-
-.o-layout--justify-center {
     justify-content: center;
-}
-
-.o-layout--justify-space-around {
-    justify-content: space-around;
-}
-
-.o-layout--justify-space-evenly {
-    justify-content: space-evenly;
-}
-
-.o-layout--justify-space-between {
-    justify-content: space-between;
-}
-
-/* Vertical alignment modifiers */
-
-.o-layout--align-start {
-    align-items: flex-start;
-}
-
-.o-layout--align-end {
-    align-items: flex-end;
-}
-
-.o-layout--align-center {
     align-items: center;
-}
-
-.o-layout--align-baseline {
-    align-items: baseline;
-}
-
-/* Vertical alignment modifiers that only work if there is one than one flex item */
-
-.o-layout--align-content-start {
-    align-content: start;
-}
-
-.o-layout--align-content-end {
-    align-content: end;
-}
-
-.o-layout--align-content-center {
-    align-content: center;
-}
-
-.o-layout--align-content-space-around {
-    align-content: space-around;
-}
-
-.o-layout--align-content-space-between {
-    align-content: space-between;
+    height: 100vh;
 }
 
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
 
+.c-header__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: ;
+}
+.c-header-logo {
+    width: 200px;
+}
+.c-page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #1DB954;
+}
+
+.c-canvas {
+    mask-image: url('.c-mask');
+}
+
+
 .c-animate-logo {
-    height: 300px;
+    position: absolute;
+    height: 500px;
+    fill-opacity: 0.5;
+    fill: #e85e00;
+    transition: height 3s var(--global-transitionTiming-alpha);
 }
 
-/*------------------------------------*\
-  #UTILITIES
-\*------------------------------------*/
-
-/*
-    Utilities: max-width
-    ---
-    Utility classes to put specific max widths onto elements.
-*/
-
-.u-max-width-sm {
-    max-width: 36em;
-}
-
-.u-max-width-md {
-    max-width: 45em !important;
-}
-
-.u-max-width-lg {
-    max-width: 60em !important;
-}
-
-.u-max-width-xl {
-    max-width: 75em !important;
-}
-
-.u-max-width-none {
-    max-width: none !important;
-}
-
-/*
-    Utility: Flex
-    ---
-    Utility classes to put specific flex properties onto elements
-    Will be mostly used on o-layout__item
-*/
-.u-flex-basis-auto {
-    flex-basis: auto !important;
-}
-
-.u-flex-grow-1 {
-    flex-grow: 1 !important;
-}
-
-.u-1-of-2 {
-    flex-basis: calc(100% / 2) !important;
-}
-
-.u-1-of-3 {
-    flex-basis: calc(100% / 3) !important;
-}
-
-.u-2-of-3 {
-    flex-basis: calc(100% / 3 * 2) !important;
-}
-
-.u-1-of-4 {
-    flex-basis: calc(100% / 4) !important;
-}
-
-.u-3-of-4 {
-    flex-basis: calc(100% / 4 * 3) !important;
-}
-
-.u-1-of-5 {
-    flex-basis: calc(100% / 5) !important;
-}
-
-.u-2-of-5 {
-    flex-basis: calc(100% / 5 * 2) !important;
-}
-
-.u-3-of-5 {
-    flex-basis: calc(100% / 5 * 3) !important;
-}
-
-.u-4-of-5 {
-    flex-basis: calc(100% / 5 * 4) !important;
-}
-
-.u-1-of-6 {
-    flex-basis: calc(100% / 6) !important;
-}
-
-.u-5-of-6 {
-    flex-basis: calc(100% / 6 * 5) !important;
-}
-
-@media (min-width: 576px) {
-    .u-1-of-2-bp1 {
-        flex-basis: calc(100% / 2) !important;
-    }
-    .u-1-of-3-bp1 {
-        flex-basis: calc(100% / 3) !important;
-    }
-    .u-2-of-3-bp1 {
-        flex-basis: calc(100% / 3 * 2) !important;
-    }
-    .u-1-of-4-bp1 {
-        flex-basis: calc(100% / 4) !important;
-    }
-    .u-3-of-4-bp1 {
-        flex-basis: calc(100% / 4 * 3) !important;
-    }
-    .u-1-of-5-bp1 {
-        flex-basis: calc(100% / 5) !important;
-    }
-    .u-2-of-5-bp1 {
-        flex-basis: calc(100% / 5 * 2) !important;
-    }
-    .u-3-of-5-bp1 {
-        flex-basis: calc(100% / 5 * 3) !important;
-    }
-    .u-4-of-5-bp1 {
-        flex-basis: calc(100% / 5 * 4) !important;
-    }
-    .u-1-of-6-bp1 {
-        flex-basis: calc(100% / 6) !important;
-    }
-    .u-5-of-6-bp1 {
-        flex-basis: calc(100% / 6 * 5) !important;
-    }
-}
-
-@media (min-width: 768px) {
-    .u-1-of-2-bp2 {
-        flex-basis: calc(100% / 2) !important;
-    }
-    .u-1-of-3-bp2 {
-        flex-basis: calc(100% / 3) !important;
-    }
-    .u-2-of-3-bp2 {
-        flex-basis: calc(100% / 3 * 2) !important;
-    }
-    .u-1-of-4-bp2 {
-        flex-basis: calc(100% / 4) !important;
-    }
-    .u-3-of-4-bp2 {
-        flex-basis: calc(100% / 4 * 3) !important;
-    }
-    .u-1-of-5-bp2 {
-        flex-basis: calc(100% / 5) !important;
-    }
-    .u-2-of-5-bp2 {
-        flex-basis: calc(100% / 5 * 2) !important;
-    }
-    .u-3-of-5-bp2 {
-        flex-basis: calc(100% / 5 * 3) !important;
-    }
-    .u-4-of-5-bp2 {
-        flex-basis: calc(100% / 5 * 4) !important;
-    }
-    .u-1-of-6-bp2 {
-        flex-basis: calc(100% / 6) !important;
-    }
-    .u-5-of-6-bp2 {
-        flex-basis: calc(100% / 6 * 5) !important;
-    }
-}
-
-@media (min-width: 992px) {
-    .u-1-of-2-bp3 {
-        flex-basis: calc(100% / 2) !important;
-    }
-    .u-1-of-3-bp3 {
-        flex-basis: calc(100% / 3) !important;
-    }
-    .u-2-of-3-bp3 {
-        flex-basis: calc(100% / 3 * 2) !important;
-    }
-    .u-1-of-4-bp3 {
-        flex-basis: calc(100% / 4) !important;
-    }
-    .u-3-of-4-bp3 {
-        flex-basis: calc(100% / 4 * 3) !important;
-    }
-    .u-1-of-5-bp3 {
-        flex-basis: calc(100% / 5) !important;
-    }
-    .u-2-of-5-bp3 {
-        flex-basis: calc(100% / 5 * 2) !important;
-    }
-    .u-3-of-5-bp3 {
-        flex-basis: calc(100% / 5 * 3) !important;
-    }
-    .u-4-of-5-bp3 {
-        flex-basis: calc(100% / 5 * 4) !important;
-    }
-    .u-1-of-6-bp3 {
-        flex-basis: calc(100% / 6) !important;
-    }
-    .u-5-of-6-bp3 {
-        flex-basis: calc(100% / 6 * 5) !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .u-1-of-2-bp4 {
-        flex-basis: calc(100% / 2) !important;
-    }
-    .u-1-of-3-bp4 {
-        flex-basis: calc(100% / 3) !important;
-    }
-    .u-2-of-3-bp4 {
-        flex-basis: calc(100% / 3 * 2) !important;
-    }
-    .u-1-of-4-bp4 {
-        flex-basis: calc(100% / 4) !important;
-    }
-    .u-3-of-4-bp4 {
-        flex-basis: calc(100% / 4 * 3) !important;
-    }
-    .u-1-of-5-bp4 {
-        flex-basis: calc(100% / 5) !important;
-    }
-    .u-2-of-5-bp4 {
-        flex-basis: calc(100% / 5 * 2) !important;
-    }
-    .u-3-of-5-bp4 {
-        flex-basis: calc(100% / 5 * 3) !important;
-    }
-    .u-4-of-5-bp4 {
-        flex-basis: calc(100% / 5 * 4) !important;
-    }
-    .u-1-of-6-bp4 {
-        flex-basis: calc(100% / 6) !important;
-    }
-    .u-5-of-6-bp4 {
-        flex-basis: calc(100% / 6 * 5) !important;
-    }
-}
-
-/*
-    Utility: Flex
-    ---
-    Utility classes to put specific flex properties onto elements
-    Will be mostly used on o-layout__item
-*/
-
-
-
-
-
-/*------------------------------------*\
-  #MEDIA
-\*------------------------------------*/
-
-/*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    USE THEM INLINE!
-*/
-
-/* Extra small devices (portrait phones, less than 576px)
-   No media query since this is the default in mobile first design
-*/
-
-/* Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
-*/
-
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
-*/
-
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
-
-/* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-*/
-
-/*
-    Print styles.
-    ---
-    Inlined to avoid the additional HTTP request:
-    http://www.phpied.com/delay-loading-your-print-css/
-*/
-
-@media print {
-
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " ("attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " ("attr(title) ")";
-    }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-
-    pre {
-        white-space: pre-wrap !important;
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+.c-animate-logo-expand {
+    height: 5000px;
 }
